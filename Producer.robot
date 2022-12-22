@@ -25,22 +25,33 @@ main
 
 *** Keywords ***
 Download the outlook attachment
-    Open Application    ${True}
-    ${emails}=    Get Emails
-    ...    meghana.tanikonda@yash.com
-    ...    Inbox
-    ...    [Subject]='PDF_Operation'
-    ...    ${True}
-    ...    C:${/}Users${/}meghana.tanikonda${/}Downloads
-    ...
-    ...    ${True}
-    ...    Received
+   TRY
+        Open Application    ${True}
+        ${emails}=    Get Emails
+        ...    meghana.tanikonda@yash.com
+        ...    Inbox
+        ...    [Subject]='PDF_Operation'
+        ...    ${True}
+        ...    C:${/}Users${/}meghana.tanikonda${/}Downloads
+        ...
+        ...    ${True}
+        ...    Received
+    EXCEPT    message
+        Log    unable to download outlook attachment
+    END
 
 Unzip a folder
     Extract Archive    ${All_files}    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles
-    ${List}=    Create List
-    ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Digital
-    ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Scanned
+    ${Length}=    Get Length    ${All_files}
+    Log    ${Length}
+    IF    ${Length} > 0
+        Log    ${Length}
+        ${List}=    Create List
+        ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Digital
+        ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Scanned
+    ELSE
+        Log    No files found
+    END
     RETURN    ${List}
 
 Creating List
