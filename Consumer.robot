@@ -22,7 +22,6 @@ Library             RPA.Robocloud.Items
 
 
 *** Variables ***
-#${All_files}    C:/Users/durga.mopidevi/Downloads/Samples.Zip
 ${sheetname}=       0
 
 
