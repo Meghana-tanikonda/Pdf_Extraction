@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20221222 11:45:50.326" rpa="true" schemaversion="3">
+<suite id="s1" name="Consumer" source="c:\Users\meghana.tanikonda\Documents\Robotsparebin\workitem\consumer.robot">
+<test id="s1-t1" name="Email and pdf extraction" line="30">
+<kw name="For Each Input Work Item" library="RPA.Robocloud.Items">
+<var>${path1}</var>
+<arg>load work items</arg>
+<doc>Run a keyword or function for each work item in the input queue.</doc>
+<kw name="load work items">
+<kw name="Get Work Item Variables" library="RPA.Robocloud.Items">
+<var>${work_items}</var>
+<doc>Read all variables from the current work item and
+return their names and values as a dictionary.</doc>
+<msg timestamp="20221222 11:45:56.592" level="INFO">${work_items} = {'name': 'C:\\Users\\meghana.tanikonda\\Downloads\\Unzippedfiles\\Digital/A_R Invoice - 97031.pdf'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.584" endtime="20221222 11:45:56.597"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${path1}</var>
+<arg>${work_items}[name]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221222 11:45:56.597" level="INFO">${path1} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97031.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.597" endtime="20221222 11:45:56.597"/>
+</kw>
+<return>
+<value>${path1}</value>
+<status status="PASS" starttime="20221222 11:45:56.597" endtime="20221222 11:45:56.597"/>
+</return>
+<status status="PASS" starttime="20221222 11:45:56.584" endtime="20221222 11:45:56.597"/>
+</kw>
+<msg timestamp="20221222 11:45:56.597" level="INFO">Releasing item '0' with COMPLETED state and exception: None</msg>
+<kw name="load work items">
+<kw name="Get Work Item Variables" library="RPA.Robocloud.Items">
+<var>${work_items}</var>
+<doc>Read all variables from the current work item and
+return their names and values as a dictionary.</doc>
+<msg timestamp="20221222 11:45:56.603" level="INFO">${work_items} = {'name': 'C:\\Users\\meghana.tanikonda\\Downloads\\Unzippedfiles\\Digital/A_R Invoice - 97824.pdf'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.603"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${path1}</var>
+<arg>${work_items}[name]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221222 11:45:56.603" level="INFO">${path1} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97824.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.603"/>
+</kw>
+<return>
+<value>${path1}</value>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.603"/>
+</return>
+<status status="PASS" starttime="20221222 11:45:56.601" endtime="20221222 11:45:56.603"/>
+</kw>
+<msg timestamp="20221222 11:45:56.603" level="INFO">Releasing item '1' with COMPLETED state and exception: None</msg>
+<kw name="load work items">
+<kw name="Get Work Item Variables" library="RPA.Robocloud.Items">
+<var>${work_items}</var>
+<doc>Read all variables from the current work item and
+return their names and values as a dictionary.</doc>
+<msg timestamp="20221222 11:45:56.603" level="INFO">${work_items} = {'name': 'C:\\Users\\meghana.tanikonda\\Downloads\\Unzippedfiles\\Scanned/WLC 55257.pdf'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.603"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${path1}</var>
+<arg>${work_items}[name]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221222 11:45:56.613" level="INFO">${path1} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Scanned/WLC 55257.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.613"/>
+</kw>
+<return>
+<value>${path1}</value>
+<status status="PASS" starttime="20221222 11:45:56.613" endtime="20221222 11:45:56.614"/>
+</return>
+<status status="PASS" starttime="20221222 11:45:56.603" endtime="20221222 11:45:56.614"/>
+</kw>
+<msg timestamp="20221222 11:45:56.615" level="INFO">Releasing item '2' with COMPLETED state and exception: None</msg>
+<msg timestamp="20221222 11:45:56.615" level="INFO">${path1} = ['C:\\Users\\meghana.tanikonda\\Downloads\\Unzippedfiles\\Digital/A_R Invoice - 97031.pdf', 'C:\\Users\\meghana.tanikonda\\Downloads\\Unzippedfiles\\Digital/A_R Invoice - 97824.pdf', 'C:\\Users\\megha...</msg>
+<status status="PASS" starttime="20221222 11:45:56.584" endtime="20221222 11:45:56.615"/>
+</kw>
+<kw name="Create Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Create and open a new Excel workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:56.617" endtime="20221222 11:45:56.617"/>
+</kw>
+<for flavor="IN">
+<var>${i}</var>
+<value>@{path1}</value>
+<iter>
+<var name="${i}">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97031.pdf</var>
+<kw name="Log" library="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221222 11:45:56.626" level="INFO">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97031.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.626" endtime="20221222 11:45:56.626"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${data}</var>
+<arg>${i}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221222 11:45:56.626" level="INFO">${data} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97031.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.626" endtime="20221222 11:45:56.626"/>
+</kw>
+<kw name="Readpdf" library="task">
+<var>${pdf_data}</var>
+<arg>${data}</arg>
+<msg timestamp="20221222 11:45:56.783" level="INFO">${pdf_data} = INVOICE  
+
+Document Number
+
+Document Date
+
+Page
+
+AR INV97031
+
+Customer No.
+
+C16355
+
+11/23/20
+
+PO Number
+
+4501124399 Line 30
+
+Order Taken By: Kelli Smith
+
+Account Manager: Rebecca Tussey
+
+Delivery Addr...</msg>
+<status status="PASS" starttime="20221222 11:45:56.626" endtime="20221222 11:45:56.783"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${pdf_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221222 11:45:56.783" level="INFO">Length is 1859</msg>
+<msg timestamp="20221222 11:45:56.783" level="INFO">${len} = 1859</msg>
+<status status="PASS" starttime="20221222 11:45:56.783" endtime="20221222 11:45:56.783"/>
+</kw>
+<if>
+<branch type="IF" condition="${len} == 1">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${variable}</var>
+<arg>Value= Unable to extract scanned pdf data</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<kw name="Create Worksheet" library="RPA.Excel.Files">
+<arg>scanned</arg>
+<doc>Create a new worksheet in the current workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${variable}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<kw name="Rename Worksheet" library="RPA.Excel.Files">
+<arg>Sheet</arg>
+<arg>Digital</arg>
+<doc>Rename an existing worksheet in the active workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Save the active workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:56.783" endtime="20221222 11:45:56.791"/>
+</branch>
+<branch type="ELSE">
+<kw name="Extract the text data">
+<var>${list_op}</var>
+<arg>${pdf_data}</arg>
+<try>
+<branch type="TRY">
+<kw name="Convert To String" library="BuiltIn">
+<var>${Text_data}</var>
+<arg>${pdf_data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221222 11:45:56.791" level="INFO">${Text_data} = INVOICE  
+
+Document Number
+
+Document Date
+
+Page
+
+AR INV97031
+
+Customer No.
+
+C16355
+
+11/23/20
+
+PO Number
+
+4501124399 Line 30
+
+Order Taken By: Kelli Smith
+
+Account Manager: Rebecca Tussey
+
+Delivery Addr...</msg>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.791"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${Date}</var>
+<arg>${Text_data}</arg>
+<arg>\\d{2}\\/\\d{2}\\/\\d{2}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.803" level="INFO">${Date} = 11/23/20</msg>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.804"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${customer_Number}</var>
+<arg>${Text_data}</arg>
+<arg>C\\d+</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.804" level="INFO">${customer_Number} = C16355</msg>
+<status status="PASS" starttime="20221222 11:45:56.804" endtime="20221222 11:45:56.804"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${PoNumber}</var>
+<arg>${Text_data}</arg>
+<arg>\\d{10}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.809" level="INFO">${PoNumber} = 4501124399</msg>
+<status status="PASS" starttime="20221222 11:45:56.809" endtime="20221222 11:45:56.809"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${InvoiceTotal}</var>
+<arg>${Text_data}</arg>
+<arg>\\$\\s+\\d+\\.\\d+</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.809" level="INFO">${InvoiceTotal} = $ 776.90</msg>
+<status status="PASS" starttime="20221222 11:45:56.809" endtime="20221222 11:45:56.809"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${Manager}</var>
+<arg>${Text_data}</arg>
+<arg>(?sim)(?&lt;=Account Manager: )\\w+\\s+\\w+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20221222 11:45:56.815" level="INFO">${Manager} = ['Rebecca Tussey']</msg>
+<status status="PASS" starttime="20221222 11:45:56.809" endtime="20221222 11:45:56.815"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${order}</var>
+<arg>${Text_data}</arg>
+<arg>(?sim)(?&lt;=Order Taken By: )\\w+\\s+\\w+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20221222 11:45:56.815" level="INFO">${order} = ['Kelli Smith']</msg>
+<status status="PASS" starttime="20221222 11:45:56.815" endtime="20221222 11:45:56.815"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${invoiceNumber}</var>
+<arg>${Text_data}</arg>
+<arg>\\w{2}\\s\\w{3}\\d{5}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.824" level="INFO">${invoiceNumber} = AR INV97031</msg>
+<status status="PASS" starttime="20221222 11:45:56.815" endtime="20221222 11:45:56.824"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${list_op1}</var>
+<arg>Date=${Date}</arg>
+<arg>customer_Number=${customer_Number}</arg>
+<arg>PoNumber=${PoNumber}</arg>
+<arg>invoicetotal=${InvoiceTotal}</arg>
+<arg>Manager=${Manager}</arg>
+<arg>order=${order}</arg>
+<arg>invoiceNumber=${invoiceNumber}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221222 11:45:56.824" level="INFO">${list_op1} = {'Date': '11/23/20', 'customer_Number': 'C16355', 'PoNumber': '4501124399', 'invoicetotal': '$ 776.90', 'Manager': ['Rebecca Tussey'], 'order': ['Kelli Smith'], 'invoiceNumber': 'AR INV97031'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.824" endtime="20221222 11:45:56.824"/>
+</kw>
+<return>
+<value>${list_op1}</value>
+<status status="PASS" starttime="20221222 11:45:56.824" endtime="20221222 11:45:56.824"/>
+</return>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.824"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>unable to extract the data</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.824" endtime="20221222 11:45:56.824"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:56.824" endtime="20221222 11:45:56.824"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.824"/>
+</try>
+<msg timestamp="20221222 11:45:56.832" level="INFO">${list_op} = {'Date': '11/23/20', 'customer_Number': 'C16355', 'PoNumber': '4501124399', 'invoicetotal': '$ 776.90', 'Manager': ['Rebecca Tussey'], 'order': ['Kelli Smith'], 'invoiceNumber': 'AR INV97031'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.832"/>
+</kw>
+<kw name="store in excel">
+<arg>${list_op}</arg>
+<try>
+<branch type="TRY">
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>1</arg>
+<arg>Date</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.834"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>2</arg>
+<arg>Custumer number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.834"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>3</arg>
+<arg>PO number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.834"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>4</arg>
+<arg>invoicetotal</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.842"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>5</arg>
+<arg>Manager</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.842" endtime="20221222 11:45:56.842"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>6</arg>
+<arg>order</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.842" endtime="20221222 11:45:56.842"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>7</arg>
+<arg>invoice number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.842" endtime="20221222 11:45:56.842"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${final_tb}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="PASS" starttime="20221222 11:45:56.842" endtime="20221222 11:45:56.842"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Save the active workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:56.842" endtime="20221222 11:45:56.878"/>
+</kw>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.878"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>unable to store in excel</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.878" endtime="20221222 11:45:56.878"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:56.878" endtime="20221222 11:45:56.878"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.878"/>
+</try>
+<status status="PASS" starttime="20221222 11:45:56.834" endtime="20221222 11:45:56.878"/>
+</kw>
+<status status="PASS" starttime="20221222 11:45:56.791" endtime="20221222 11:45:56.878"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.783" endtime="20221222 11:45:56.878"/>
+</if>
+<status status="PASS" starttime="20221222 11:45:56.626" endtime="20221222 11:45:56.878"/>
+</iter>
+<iter>
+<var name="${i}">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97824.pdf</var>
+<kw name="Log" library="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221222 11:45:56.878" level="INFO">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97824.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.878" endtime="20221222 11:45:56.878"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${data}</var>
+<arg>${i}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221222 11:45:56.878" level="INFO">${data} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Digital/A_R Invoice - 97824.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:56.878" endtime="20221222 11:45:56.878"/>
+</kw>
+<kw name="Readpdf" library="task">
+<var>${pdf_data}</var>
+<arg>${data}</arg>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${pdf_data} = Document Number
+
+Document Date
+
+Page
+
+INVOICE  
+
+12/02/20
+
+PO Number
+
+4501131212
+
+AR INV97824
+
+Customer No.
+
+C16355
+
+Order Taken By: Ricky Graves
+
+Account Manager: Rebecca Tussey
+
+Delivery Address
+DEE...</msg>
+<status status="PASS" starttime="20221222 11:45:56.878" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${pdf_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">Length is 951</msg>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${len} = 951</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<if>
+<branch type="IF" condition="${len} == 1">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${variable}</var>
+<arg>Value= Unable to extract scanned pdf data</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Create Worksheet" library="RPA.Excel.Files">
+<arg>scanned</arg>
+<doc>Create a new worksheet in the current workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${variable}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Rename Worksheet" library="RPA.Excel.Files">
+<arg>Sheet</arg>
+<arg>Digital</arg>
+<doc>Rename an existing worksheet in the active workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Save the active workbook.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</branch>
+<branch type="ELSE">
+<kw name="Extract the text data">
+<var>${list_op}</var>
+<arg>${pdf_data}</arg>
+<try>
+<branch type="TRY">
+<kw name="Convert To String" library="BuiltIn">
+<var>${Text_data}</var>
+<arg>${pdf_data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${Text_data} = Document Number
+
+Document Date
+
+Page
+
+INVOICE  
+
+12/02/20
+
+PO Number
+
+4501131212
+
+AR INV97824
+
+Customer No.
+
+C16355
+
+Order Taken By: Ricky Graves
+
+Account Manager: Rebecca Tussey
+
+Delivery Address
+DEE...</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${Date}</var>
+<arg>${Text_data}</arg>
+<arg>\\d{2}\\/\\d{2}\\/\\d{2}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${Date} = 12/02/20</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${customer_Number}</var>
+<arg>${Text_data}</arg>
+<arg>C\\d+</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${customer_Number} = C16355</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${PoNumber}</var>
+<arg>${Text_data}</arg>
+<arg>\\d{10}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${PoNumber} = 4501131212</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${InvoiceTotal}</var>
+<arg>${Text_data}</arg>
+<arg>\\$\\s+\\d+\\.\\d+</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.957" level="INFO">${InvoiceTotal} = $ 50.50</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.957"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${Manager}</var>
+<arg>${Text_data}</arg>
+<arg>(?sim)(?&lt;=Account Manager: )\\w+\\s+\\w+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20221222 11:45:56.966" level="INFO">${Manager} = ['Rebecca Tussey']</msg>
+<status status="PASS" starttime="20221222 11:45:56.965" endtime="20221222 11:45:56.966"/>
+</kw>
+<kw name="Get Regexp Matches" library="String">
+<var>${order}</var>
+<arg>${Text_data}</arg>
+<arg>(?sim)(?&lt;=Order Taken By: )\\w+\\s+\\w+</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<msg timestamp="20221222 11:45:56.967" level="INFO">${order} = ['Ricky Graves']</msg>
+<status status="PASS" starttime="20221222 11:45:56.966" endtime="20221222 11:45:56.967"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${invoiceNumber}</var>
+<arg>${Text_data}</arg>
+<arg>\\w{2}\\s\\w{3}\\d{5}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20221222 11:45:56.967" level="INFO">${invoiceNumber} = AR INV97824</msg>
+<status status="PASS" starttime="20221222 11:45:56.967" endtime="20221222 11:45:56.967"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${list_op1}</var>
+<arg>Date=${Date}</arg>
+<arg>customer_Number=${customer_Number}</arg>
+<arg>PoNumber=${PoNumber}</arg>
+<arg>invoicetotal=${InvoiceTotal}</arg>
+<arg>Manager=${Manager}</arg>
+<arg>order=${order}</arg>
+<arg>invoiceNumber=${invoiceNumber}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221222 11:45:56.967" level="INFO">${list_op1} = {'Date': '12/02/20', 'customer_Number': 'C16355', 'PoNumber': '4501131212', 'invoicetotal': '$ 50.50', 'Manager': ['Rebecca Tussey'], 'order': ['Ricky Graves'], 'invoiceNumber': 'AR INV97824'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.967" endtime="20221222 11:45:56.967"/>
+</kw>
+<return>
+<value>${list_op1}</value>
+<status status="PASS" starttime="20221222 11:45:56.967" endtime="20221222 11:45:56.967"/>
+</return>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.967"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>unable to extract the data</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:56.967" endtime="20221222 11:45:56.967"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:56.967" endtime="20221222 11:45:56.967"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.967"/>
+</try>
+<msg timestamp="20221222 11:45:56.967" level="INFO">${list_op} = {'Date': '12/02/20', 'customer_Number': 'C16355', 'PoNumber': '4501131212', 'invoicetotal': '$ 50.50', 'Manager': ['Rebecca Tussey'], 'order': ['Ricky Graves'], 'invoiceNumber': 'AR INV97824'}</msg>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:56.967"/>
+</kw>
+<kw name="store in excel">
+<arg>${list_op}</arg>
+<try>
+<branch type="TRY">
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>1</arg>
+<arg>Date</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>2</arg>
+<arg>Custumer number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>3</arg>
+<arg>PO number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>4</arg>
+<arg>invoicetotal</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>5</arg>
+<arg>Manager</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>6</arg>
+<arg>order</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>7</arg>
+<arg>invoice number</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${final_tb}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:56.975"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Save the active workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:57.011"/>
+</kw>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:57.011"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>unable to store in excel</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.011"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.011"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.975" endtime="20221222 11:45:57.011"/>
+</try>
+<status status="PASS" starttime="20221222 11:45:56.967" endtime="20221222 11:45:57.011"/>
+</kw>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:57.011"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:56.957" endtime="20221222 11:45:57.011"/>
+</if>
+<status status="PASS" starttime="20221222 11:45:56.878" endtime="20221222 11:45:57.011"/>
+</iter>
+<iter>
+<var name="${i}">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Scanned/WLC 55257.pdf</var>
+<kw name="Log" library="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221222 11:45:57.011" level="INFO">C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Scanned/WLC 55257.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.011"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${data}</var>
+<arg>${i}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221222 11:45:57.011" level="INFO">${data} = C:\Users\meghana.tanikonda\Downloads\Unzippedfiles\Scanned/WLC 55257.pdf</msg>
+<status status="PASS" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.011"/>
+</kw>
+<kw name="Readpdf" library="task">
+<var>${pdf_data}</var>
+<arg>${data}</arg>
+<msg timestamp="20221222 11:45:57.078" level="INFO">${pdf_data} = </msg>
+<status status="PASS" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.078"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${pdf_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221222 11:45:57.078" level="INFO">Length is 1</msg>
+<msg timestamp="20221222 11:45:57.078" level="INFO">${len} = 1</msg>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.078"/>
+</kw>
+<if>
+<branch type="IF" condition="${len} == 1">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${variable}</var>
+<arg>Value= Unable to extract scanned pdf data</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221222 11:45:57.078" level="INFO">${variable} = {'Value': ' Unable to extract scanned pdf data'}</msg>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.078"/>
+</kw>
+<kw name="Create Worksheet" library="RPA.Excel.Files">
+<arg>scanned</arg>
+<doc>Create a new worksheet in the current workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.078"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${variable}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.078"/>
+</kw>
+<kw name="Rename Worksheet" library="RPA.Excel.Files">
+<arg>Sheet</arg>
+<arg>Digital</arg>
+<doc>Rename an existing worksheet in the active workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.078"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<arg>C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx</arg>
+<doc>Save the active workbook.</doc>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.124"/>
+</kw>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.124"/>
+</branch>
+<branch type="ELSE">
+<kw name="Extract the text data">
+<var>${list_op}</var>
+<arg>${pdf_data}</arg>
+<status status="NOT RUN" starttime="20221222 11:45:57.124" endtime="20221222 11:45:57.124"/>
+</kw>
+<kw name="store in excel">
+<arg>${list_op}</arg>
+<status status="NOT RUN" starttime="20221222 11:45:57.124" endtime="20221222 11:45:57.124"/>
+</kw>
+<status status="NOT RUN" starttime="20221222 11:45:57.124" endtime="20221222 11:45:57.124"/>
+</branch>
+<status status="PASS" starttime="20221222 11:45:57.078" endtime="20221222 11:45:57.124"/>
+</if>
+<status status="PASS" starttime="20221222 11:45:57.011" endtime="20221222 11:45:57.124"/>
+</iter>
+<status status="PASS" starttime="20221222 11:45:56.626" endtime="20221222 11:45:57.124"/>
+</for>
+<status status="PASS" starttime="20221222 11:45:56.584" endtime="20221222 11:45:57.124"/>
+</test>
+<doc>Email and Pdf extraction.
+Download the outlook attachment.
+unzip the outlook attachment.
+A folder contains some pdf files and convert into text file and need to extract the data from text file
+store in Excel</doc>
+<status status="PASS" starttime="20221222 11:45:50.351" endtime="20221222 11:45:57.124"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Consumer">Consumer</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221222 11:45:56.569" level="WARN">This is a deprecated import that will be removed in favor of RPA.Robocorp.WorkItems</msg>
+</errors>
+</robot>
