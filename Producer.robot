@@ -9,12 +9,7 @@ Library           RPA.Outlook.Application
 Library           RPA.Archive
 
 *** Variables ***
-${hf}=            EMAIL ADDRES
-${present}=       column is present
-${not_present}=    column is not_present
 ${All_files}      C:/Users/meghana.tanikonda/Downloads/Samples.Zip
-${fol1}=          C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Digital
-${fol2}=          C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Scanned
 
 *** Tasks ***
 main
