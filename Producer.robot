@@ -1,26 +1,25 @@
 *** Settings ***
-Library           RPA.Database
-Library           Collections
-Library           RPA.Browser.Selenium
-#Library          RPA.Robocloud.Items
-Library           OperatingSystem
-Library           RPA.Robocorp.WorkItems
-Library           RPA.Outlook.Application
-Library           RPA.Archive
+Library     Collections
+Library     OperatingSystem
+Library     RPA.Robocorp.WorkItems
+Library     RPA.Outlook.Application
+Library     RPA.Archive
+
 
 *** Variables ***
-${All_files}      C:/Users/meghana.tanikonda/Downloads/Samples.Zip
+${All_files}    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/Samples.Zip
+
 
 *** Tasks ***
 main
-    # Checking Column names
     Download the outlook attachment
     ${list}=    Unzip a folder
     Creating List    ${list}
 
+
 *** Keywords ***
 Download the outlook attachment
-   TRY
+    TRY
         Open Application    ${True}
         ${emails}=    Get Emails
         ...    meghana.tanikonda@yash.com
@@ -36,14 +35,14 @@ Download the outlook attachment
     END
 
 Unzip a folder
-    Extract Archive    ${All_files}    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles
+    Extract Archive    ${All_files}    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/Unzippedfiles
     ${Length}=    Get Length    ${All_files}
     Log    ${Length}
     IF    ${Length} > 0
         Log    ${Length}
         ${List}=    Create List
-        ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Digital
-        ...    C:${/}Users${/}meghana.tanikonda${/}Downloads${/}Unzippedfiles${/}Scanned
+        ...    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/Unzippedfiles/Digital
+        ...    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/Unzippedfiles/Scanned
     ELSE
         Log    No files found
     END
@@ -51,14 +50,13 @@ Unzip a folder
 
 Creating List
     [Arguments]    ${list}
-    #${list}=    Create List    ${fol1}    ${fol2}
     ${counter}=    Set Variable    0
     ${items}=    Create List
-    FOR    ${i}    IN    @{list}
+    FOR    ${listpdf}    IN    @{list}
         ${counter}=    Evaluate    ${counter}+1
-        ${paths}=    List Files In Directory    ${i}
+        ${paths}=    List Files In Directory    ${listpdf}
         FOR    ${file}    IN    @{paths}
-            Append To List    ${items}    ${i}/${file}
+            Append To List    ${items}    ${listpdf}/${file}
         END
     END
     FOR    ${j}    IN    @{items}
