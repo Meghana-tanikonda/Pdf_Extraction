@@ -12,44 +12,33 @@ Library             RPA.Excel.Files
 Library             String
 Library             RPA.Outlook.Application    auto_close=${false}
 Library             RPA.FileSystem
-Library             RPA.RobotLogListener
-Library             RPA.Archive
-Library             RPA.Email.ImapSmtp
-Library             RPA.Tables
-Library             RPA.HTTP
-Library             Collections
 Library             RPA.Robocloud.Items
-
-
-*** Variables ***
-${sheetname}=       0
 
 
 *** Tasks ***
 Email and pdf extraction
     ${path1}=    For Each Input Work Item    load work items
 
-    Create Workbook    C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx
-    FOR    ${i}    IN    @{path1}
-        Log    ${i}
+    Create Workbook    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/output.xlsx
+    FOR    ${input_data}    IN    @{path1}
+        Log    ${input_data}
 
-        ${data}=    Convert To String    ${i}
+        ${data}=    Convert To String    ${input_data}
         ${pdf_data}=    Readpdf    ${data}
         ${len}=    Get Length    ${pdf_data}
         IF    ${len} == 1
             ${variable}=    Create Dictionary
-            # ...    name=${file}
             ...    Value= Unable to extract scanned pdf data
             Create Worksheet    scanned
             Append Rows To Worksheet    ${variable}
             Rename worksheet    Sheet    Digital
-            save Workbook    C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx
+            save Workbook    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/output.xlsx
         ELSE
-            ${list_op}=    Extract the text data    ${pdf_data}
-            store in excel    ${list_op}
+            ${Dic_values}=    Extract the text data    ${pdf_data}
+            store in excel    ${Dic_values}
         END
     END
-    #Sending a mail
+    Sending a mail
 
 
 *** Keywords ***
@@ -73,7 +62,7 @@ Extract the text data
         ${Manager}=    Get Regexp Matches    ${Text_data}    (?sim)(?<=Account Manager: )\\w+\\s+\\w+
         ${order}=    Get Regexp Matches    ${Text_data}    (?sim)(?<=Order Taken By: )\\w+\\s+\\w+
         ${invoiceNumber}=    Should Match Regexp    ${Text_data}    \\w{2}\\s\\w{3}\\d{5}
-        ${list_op1}=    Create Dictionary
+        ${Dic_values}=    Create Dictionary
         ...    Date=${Date}
         ...    customer_Number=${customer_Number}
         ...    PoNumber=${PoNumber}
@@ -82,7 +71,7 @@ Extract the text data
         ...    order=${order}
         ...    invoiceNumber=${invoiceNumber}
 
-        RETURN    ${list_op1}
+        RETURN    ${Dic_values}
     EXCEPT    message
         Log    unable to extract the data
     END
@@ -100,21 +89,21 @@ store in excel
 
         Append Rows To Worksheet    ${final_tb}
 
-        save Workbook    C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx
+        save Workbook    C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/output.xlsx
     EXCEPT    message
         Log    unable to store in excel
     END
 
 Sending a mail
-    TRY
-        Send Email
-        ...    recipients=meghana.tanikonda@yash.com
-        ...    subject=Pdf extraction
-        ...    body=Please find the updated excel
-        ...    attachments=C:/Users/meghana.tanikonda/Documents/Robotsparebin/workitem/output.xlsx
-    EXCEPT    message
-        Log    unable to send a mail
-    END
+    #TRY
+    Send Email
+    ...    recipients=meghana.tanikonda@yash.com
+    ...    subject=Pdf extraction
+    ...    body=Please find the updated excel
+    ...    attachments=C:/Users/meghana.tanikonda/Documents/Robocorp/workitem/output.xlsx
+    #EXCEPT    message
+    #Log    unable to send a mail
+    #END
 
 load work items
     ${work_items}=    Get Work Item Variables
